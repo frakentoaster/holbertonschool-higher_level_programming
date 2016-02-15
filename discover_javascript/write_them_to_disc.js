@@ -7,8 +7,7 @@ var options = {
 &order=desc',
     headers: {
 	'User-Agent': 'Holberton_School',
-	'Authorization': 'token 58d7730b72d5e9ee5abe4484958359cc\
-b67aa53a'
+	'Authorization': 'token ' + process.env.TOKEN
     }
 }
 
