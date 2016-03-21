@@ -1,6 +1,6 @@
 require 'HTTPClient'
 require 'json'
-require 'thread'
+require 'net/http'
 
 extheaders = {
   'User-Agent' => 'Holberton_School',
@@ -13,9 +13,12 @@ request = http.get_content('https://api.github.com/search/repositories?q=languag
 # parse json response
 json = JSON.parse(request)
 # iterate through parsed json outputting owner locations
+res = []
 owner_loc = json["items"].map do |i|
-	origin = i["owner"]["url"]
-	owners = JSON.parse(http.get_content(origin, nil, extheaders))
-	{full_name: i["full_name"], location: owners["location"]}
+	Thread.new do
+		origin = i["owner"]["url"]
+		owner_hash = JSON.parse(http.get_content(origin, nil, extheaders))
+		{full_name: i["full_name"], location: owner_hash["location"]}
+	end
 end
 puts owner_loc.to_json
