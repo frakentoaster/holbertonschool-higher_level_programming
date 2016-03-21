@@ -1,5 +1,6 @@
 require 'HTTPClient'
 require 'json'
+require 'thread'
 
 extheaders = {
   'User-Agent' => 'Holberton_School',
@@ -11,10 +12,17 @@ http = HTTPClient.new
 request = http.get_content('https://api.github.com/search/repositories?q=language:ruby&sort=stars&order=desc')
 # parse json response
 json = JSON.parse(request)
+
+result = []
+thread = []
 # iterate through parsed json outputting owner locations
 owner_loc = json["items"].map do |i|
 	origin = i["owner"]["url"]
-	owner_hash = JSON.parse(http.get_content(origin, nil, extheaders))
-	{full_name: i["full_name"], location: owner_hash["location"]}
+	thread << Thread.new(origin, extheaders) do
+		owners = JSON.parse(http.get_content(origin, nil, extheaders))
+		result << {full_name: i["full_name"], location: owners["location"]}
+	end
 end
-puts owner_loc.to_json
+
+thread.each { |t| t.join }
+puts result.to_json
