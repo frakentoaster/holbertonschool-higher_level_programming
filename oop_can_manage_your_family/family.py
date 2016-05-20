@@ -62,3 +62,59 @@ class Person():
 		now = datetime.date.today()
 		age = now.year - int(self.__date_of_birth[2]) -(now.day < int(self.__date_of_birth[1])) % 12
 		return age
+
+class Baby(Person):
+	''' Describes a baby, sublclass of Person '''
+	def can_run(self):
+		return False
+
+	def need_help(self):
+		return True
+
+	def is_young(self):
+		return True
+
+	def can_vote(self):
+		return False
+
+class Teenager(Person):
+	''' Describes a teenager, sublclass of Person '''
+	def can_run(self):
+		return True
+
+	def need_help(self):
+		return False
+
+	def is_young(self):
+		return True
+
+	def can_vote(self):
+		return False
+
+class Adult(Person):
+	''' Describes an adult, sublclass of Person '''
+	def can_run(self):
+		return True
+
+	def need_help(self):
+		return False
+
+	def is_young(self):
+		return False
+
+	def can_vote(self):
+		return True
+
+class Senior(Person):
+	''' Describes a senior, sublclass of Person '''
+	def can_run(self):
+		return False
+
+	def need_help(self):
+		return True
+
+	def is_young(self):
+		return False
+
+	def can_vote(self):
+		return True
