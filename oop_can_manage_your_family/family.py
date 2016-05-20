@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 ''' This class describes a circle '''
 class Person():
 	''' Class attributes '''
@@ -50,8 +50,8 @@ class Person():
 	def get_first_name(self):
 		return self.__first_name
 
-	''' Public Methods '''
 
+	''' Public Methods '''
 	def __str__(self):
 		return self.__first_name + " " + self.last_name
 
@@ -59,4 +59,6 @@ class Person():
 		return self.__genre == "Male"
 
 	def age(self):
-		return (2016 - int(self.__date_of_birth[2]))
+		now = datetime.date.today()
+		age = now.year - int(self.__date_of_birth[2]) -(now.day < int(self.__date_of_birth[1])) % 12
+		return age
