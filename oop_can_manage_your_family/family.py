@@ -20,7 +20,6 @@ class Person():
 		if type(eyes_color) is not str and eye_color not in Person.EYE_COLORS:
 			raise Exception("eyes_color is not valid")
 
-		''' Public methods '''
 		if not isinstance(id,int):
 			raise Exception("id is not an integer")
 
@@ -33,6 +32,7 @@ class Person():
 			raise Exception("date_of_birth is not a valid date")
 		if int(self.__date_of_birth[1]) < 1 or int(self.__date_of_birth[1]) > 31:
 			raise Exception("date_of_birth is not a valid date")
+
 
 	''' Getters '''
 	def get_id(self):
@@ -49,3 +49,14 @@ class Person():
 
 	def get_first_name(self):
 		return self.__first_name
+
+	''' Public Methods '''
+
+	def __str__(self):
+		return self.__first_name + " " + self.last_name
+
+	def is_male(self):
+		return self.__genre == "Male"
+
+	def age(self):
+		return (2016 - int(self.__date_of_birth[2]))
