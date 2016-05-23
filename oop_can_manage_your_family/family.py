@@ -66,6 +66,19 @@ class Person():
 		age = abs((a - b).days/365.2425)
 		return age
 
+	def json(self):
+		hash_table = {}
+		hash_table['id'] = self.__id
+		hash_table['eyes_color'] = self.__eye_color
+		hash_table['genre'] = self.__genre
+		hash_table['date_of_birth'] = self.__date_of_birth
+		hash_table['first_name'] = self.__first_name
+		return hash_table
+
+	def load_from_json(self, json):
+		if type(json) is not dict:
+		    raise Exception("json is not valid")
+
 class Baby(Person):
 	''' Describes a baby, sublclass of Person '''
 	def can_run(self):
