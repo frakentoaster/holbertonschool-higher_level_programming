@@ -60,3 +60,28 @@ class Student : Person, Classify {
     return true
   }
 }
+
+class School {
+  var name: String
+  var list_persons: ([Person]!) = []
+  init(name: String) {
+    self.name = name
+  }
+  func addStudent(p: Person) -> Bool {
+    if p is Student {
+      list_persons.append(p)
+      return true
+    } else {
+      return false
+    }
+  }
+
+  func addMentor(p: Person) -> Bool {
+    if p is Mentor {
+      list_persons.append(p)
+      return true
+    } else {
+      return false
+    }
+  }
+}
