@@ -1,3 +1,14 @@
+/*
+  Rick Houser
+  Holberton School of Software Engineering
+  Higher-Level Programming project 153
+  Class describes a Person
+  Exercise to manipulate Object, Class, Enum and Protocols in Swift
+*/
+protocol Classify {
+  func isStudent() -> Bool
+}
+
 class Person {
   var first_name: String
   var last_name: String
@@ -11,5 +22,17 @@ class Person {
 
   func fullName() -> String {
     return first_name + " " + last_name
+  }
+}
+
+class Mentor : Person, Classify {
+  func isStudent() -> Bool {
+    return false
+  }
+}
+
+class Student : Person, Classify {
+  func isStudent() -> Bool {
+    return true
   }
 }
