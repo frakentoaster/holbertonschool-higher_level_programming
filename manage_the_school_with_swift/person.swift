@@ -26,7 +26,7 @@ class Person {
     self.last_name = last_name
     self.age = age
   }
-
+  // Concats first and last names
   func fullName() -> String {
     return first_name + " " + last_name
   }
@@ -38,6 +38,7 @@ class Mentor : Person, Classify {
     self.subject = subject
     super.init(first_name : first_name, last_name : last_name, age : age)
   }
+  // Switch statement for subjects
   func stringSubject() -> String {
     switch subject {
       case.Math:
@@ -50,11 +51,13 @@ class Mentor : Person, Classify {
         return("History")
     }
   }
+  // Set bool if student
   func isStudent() -> Bool {
     return false
   }
 }
 
+// Student class sets bool if student
 class Student : Person, Classify {
   func isStudent() -> Bool {
     return true
@@ -66,7 +69,7 @@ class School {
   var list_persons: ([Person]!) = []
   init(name: String) {
     self.name = name
-  }
+  } // Appends student to array
   func addStudent(p: Person) -> Bool {
     if p is Student {
       list_persons.append(p)
@@ -75,7 +78,7 @@ class School {
       return false
     }
   }
-
+  // Append mentor to array
   func addMentor(p: Person) -> Bool {
     if p is Mentor {
       list_persons.append(p)
@@ -83,5 +86,39 @@ class School {
     } else {
       return false
     }
+  }
+  // Returns list of students sorted by age
+  func listStudents() -> [Person] {
+    var list_students : ([Person]) = []
+    for i in list_persons {
+      if i is Student {
+        list_students.append(i)
+      }
+    }
+    return list_students.sort({ $0.age > $1.age })
+  }
+  // Returns list of mentors sorted by age
+  func listMentors() -> [Person] {
+    var list_mentors : ([Person]) = []
+    for i in list_persons {
+      if i is Mentor {
+        list_mentors.append(i)
+      }
+    }
+    return list_mentors.sort({ $0.age > $1.age })
+  }
+  // Returns list of mentors with subject(by downcasting) and sorted by age
+  func listMentorsBySubject(subject: Subject) -> [Person] {
+    var list_mentors : ([Person]) = []
+    for i in list_persons {
+      if i is Mentor {
+        if let mentor = i as? Mentor {
+          if mentor.subject == subject {
+            list_mentors.append(i)
+          }
+        }
+      }
+    }
+    return list_mentors.sort({ $0.age > $1.age })
   }
 }
