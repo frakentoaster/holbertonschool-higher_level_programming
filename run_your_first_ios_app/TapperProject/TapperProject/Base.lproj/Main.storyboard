@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TapperProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-bB-5jf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="CQw-Fg-BhO">
+                                <rect key="frame" x="51" y="51" width="497" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="dTa-BE-vHT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" misplaced="YES" image="playbtn" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-pG-thk">
+                                <rect key="frame" x="128" y="339" width="356" height="175"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="How many taps you wanted ?" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CdJ-i0-l1N">
+                                <rect key="frame" x="198" y="241" width="203" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzY-pG-thk" secondAttribute="bottom" constant="63" id="1cZ-Gm-SRM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzY-pG-thk" secondAttribute="bottom" constant="23" id="4fg-JI-Vln"/>
+                            <constraint firstItem="CQw-Fg-BhO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="35" id="DqW-06-xPY"/>
+                            <constraint firstItem="gzY-pG-thk" firstAttribute="top" secondItem="CdJ-i0-l1N" secondAttribute="bottom" constant="38" id="Hz7-Nn-sxk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WFO-bB-5jf" secondAttribute="bottom" constant="-200" id="Iva-hf-hsV"/>
+                            <constraint firstItem="WFO-bB-5jf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KTv-6s-GSc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CQw-Fg-BhO" secondAttribute="trailing" constant="28" id="LZY-TX-yEg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CQw-Fg-BhO" secondAttribute="bottom" constant="442" id="Q5l-SR-fCp"/>
+                            <constraint firstItem="WFO-bB-5jf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z2O-v4-urr"/>
+                            <constraint firstAttribute="trailing" secondItem="WFO-bB-5jf" secondAttribute="trailing" id="bjW-gS-zQ6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzY-pG-thk" secondAttribute="bottom" constant="63" id="cd1-5N-rpE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WFO-bB-5jf" secondAttribute="trailing" constant="-200" id="evl-oG-qFH"/>
+                            <constraint firstItem="CQw-Fg-BhO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="f4O-1P-6rj"/>
+                            <constraint firstAttribute="bottom" secondItem="WFO-bB-5jf" secondAttribute="bottom" id="z6F-q3-eEw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1cZ-Gm-SRM"/>
+                                <exclude reference="cd1-5N-rpE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232" y="305"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Tapper" width="497" height="107"/>
+        <image name="playbtn" width="356" height="175"/>
+        <image name="retrobg" width="800" height="800"/>
+    </resources>
+</document>
