@@ -30,16 +30,42 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func clickPlayButton(sender: AnyObject) {
-        let int = Int(textfield_number.text!)!
-        if int > 0 {
-            print("Let's do \(int) taps")
+        let taps_requested = Int(textfield_number.text!)!
+
+        if taps_requested > 0 {
+            print("Let's do \(taps_requested) taps")
+            initGame()
         }
     }
     @IBAction func clickCoinButton(sender: AnyObject) {
+        if taps_done < taps_requested {
+            
+        }
+        if taps_done >= taps_requested {
+            resetGame()
+        }
         print("Tap!")
         taps_done += 1
         let result = String(taps_done)
         label_taps.text = (result)
+    }
+    func initGame() {
+        image_tapper.hidden = true
+        button_play.hidden = true
+        label_taps.hidden = false
+        button_coin.hidden = false
+        textfield_number.hidden = true
+        taps_done = 0
+        label_taps.text = "0 Taps"
+    }
+    func resetGame() {
+        label_taps.hidden = true
+        button_coin.hidden = true
+        image_tapper.hidden = false
+        button_play.hidden = false
+        textfield_number.hidden = false
+        taps_requested = 0
+        
     }
 }
 
