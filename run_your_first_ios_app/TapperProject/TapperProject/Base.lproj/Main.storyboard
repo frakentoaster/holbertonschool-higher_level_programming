@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -20,6 +21,13 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="retrobg" translatesAutoresizingMaskIntoConstraints="NO" id="WFO-bB-5jf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="VRp-bo-8Nq">
+                                <rect key="frame" x="178" y="13" width="244" height="268"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UUg-pV-1b1" appends="YES" id="MwR-yJ-e8R"/>
+                                </connections>
+                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Tapper" translatesAutoresizingMaskIntoConstraints="NO" id="CQw-Fg-BhO">
                                 <rect key="frame" x="151" y="28" width="299" height="60"/>
                                 <constraints>
@@ -36,6 +44,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="X taps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkB-JL-zdM">
+                                <rect key="frame" x="276" y="289" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="playbtn" translatesAutoresizingMaskIntoConstraints="NO" id="gzY-pG-thk">
                                 <rect key="frame" x="214" y="484" width="172" height="84"/>
                                 <gestureRecognizers/>
@@ -50,10 +64,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VRp-bo-8Nq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1k9-7n-cg4"/>
                             <constraint firstItem="CQw-Fg-BhO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5VA-J8-Xha"/>
                             <constraint firstItem="WFO-bB-5jf" firstAttribute="centerX" secondItem="CdJ-i0-l1N" secondAttribute="centerX" id="C1h-9K-ErC"/>
                             <constraint firstItem="WFO-bB-5jf" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="EKN-vF-8Rn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzY-pG-thk" secondAttribute="bottom" constant="32" id="F3H-Ny-PwE"/>
+                            <constraint firstItem="VRp-bo-8Nq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="10" id="JmX-Ap-h0O"/>
                             <constraint firstItem="CQw-Fg-BhO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="LEZ-h1-Rhg"/>
                             <constraint firstAttribute="trailing" secondItem="WFO-bB-5jf" secondAttribute="trailing" id="LW5-JZ-ETa"/>
                             <constraint firstItem="WFO-bB-5jf" firstAttribute="centerX" secondItem="CQw-Fg-BhO" secondAttribute="centerX" id="OPZ-9P-lk3"/>
@@ -62,11 +78,15 @@
                             <constraint firstItem="gzY-pG-thk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="blZ-3I-J8I"/>
                             <constraint firstItem="WFO-bB-5jf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hR6-b1-82v"/>
                             <constraint firstItem="WFO-bB-5jf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nTP-cD-Tg4"/>
+                            <constraint firstItem="lkB-JL-zdM" firstAttribute="top" secondItem="VRp-bo-8Nq" secondAttribute="bottom" constant="10" id="sIE-xU-HN5"/>
+                            <constraint firstItem="lkB-JL-zdM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vXj-fu-FSo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button_coin" destination="VRp-bo-8Nq" id="WZp-xR-pLY"/>
                         <outlet property="button_play" destination="gzY-pG-thk" id="zN4-9f-ZjY"/>
                         <outlet property="image_tapper" destination="gzY-pG-thk" id="lOe-IC-5PV"/>
+                        <outlet property="label_taps" destination="lkB-JL-zdM" id="lxm-Mj-Oa1"/>
                         <outlet property="textfield_number" destination="CdJ-i0-l1N" id="YqU-eK-aC8"/>
                     </connections>
                 </viewController>
@@ -76,12 +96,18 @@
                         <action selector="clickPlayButton:" destination="BYZ-38-t0r" id="dLI-fv-odV"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="UUg-pV-1b1">
+                    <connections>
+                        <action selector="clickCoinButton:" destination="BYZ-38-t0r" id="9dO-o9-e5i"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="232" y="305"/>
         </scene>
     </scenes>
     <resources>
         <image name="Tapper" width="497" height="107"/>
+        <image name="coin" width="244" height="268"/>
         <image name="playbtn" width="356" height="175"/>
         <image name="retrobg" width="800" height="800"/>
     </resources>
