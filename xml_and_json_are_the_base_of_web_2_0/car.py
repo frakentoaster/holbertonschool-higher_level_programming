@@ -43,3 +43,7 @@ class Car():
 	''' Return string describing car '''
 	def __str__(self):
 		return self.__name + " " + self.__brand + " (" + str(self.__nb_doors) + ")"
+
+	''' Update private attributes '''
+	def set_nb_doors(self, number):
+		self.__nb_doors = number
