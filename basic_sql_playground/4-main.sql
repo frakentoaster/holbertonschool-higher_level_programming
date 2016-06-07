@@ -6,7 +6,7 @@
 INSERT INTO EyesColor VALUES
 	((SELECT id FROM Person WHERE last_name = 'Snow'), 'Brown');
 INSERT INTO EyesColor VALUES
-	((SELECT id FROM Person WHERE last_name = 'Stark'), 'Green');*/
+	((SELECT id FROM Person WHERE last_name = 'Stark'), 'Green');
 
 CREATE TABLE TVShow (
 	id INT PRIMARY KEY NOT NULL,
