@@ -1,7 +1,6 @@
 ''' Script checks if a given argv is among the arglist '''
 
 import sys
-from peewee import *
 
 if len(sys.argv) >= 2:
 	arglist = ["create", "print", "insert", "delete"]
