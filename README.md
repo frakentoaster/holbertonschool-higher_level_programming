@@ -4,12 +4,12 @@ This repo contains code from our full-stack programming track at Holberton Schoo
 
 ## Languages and Tech:
 
-1. Python
-1. Ruby
-1. MySQL
-1. Swift
-1. Bash
-1. JavaScript
-1. XML
-1. JSON
-1. Various Algorithms
+* Python
+* Ruby
+* MySQL
+* Swift
+* Bash
+* JavaScript
+* XML
+* JSON
+* Various Algorithms
